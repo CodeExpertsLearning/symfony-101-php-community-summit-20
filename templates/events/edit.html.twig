@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <form action="{{path('events_edit', {'event': event.id})}}" method="post">
+        <div class="form-group">
+            <label>Titulo do Evento</label>
+            <input type="text" class="form-control" name="title" value="{{event.title}}">
+        </div>
+
+        <div class="form-group">
+            <label>Descrição Rápida</label>
+            <input type="text" class="form-control" name="description" value="{{event.description}}">
+        </div>
+
+        <div class="form-group">
+            <label>Quer mudar o dia?</label>
+            <input type="text" class="form-control" name="event_date" value="{{event.eventDate|date('Y-m-d H:i:s')}}">
+        </div>
+
+        <button class="btn btn-lg btn-success">Atualizar Evento</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        <div class="row mb-5">
+            <div class="container">
+                <a href="{{path('events')}}">Listar Eventos</a> |
+                <a href="{{path('events_create')}}">Criar Eventos</a>
+            </div>
+        </div>
+        <div class="container">
+            {% block body %}{% endblock %}
+        </div>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

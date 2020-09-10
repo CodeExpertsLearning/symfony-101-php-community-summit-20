@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Evento</th>
+                <th>Quando?</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for event in events %}
+            <tr>
+                <td>{{event.id}}</td>
+                <td>{{event.title}}</td>
+                <td>{{event.eventDate|date('d/m/Y H:i:s')}}</td>
+                <td>
+                    <a href="{{path('events_edit', {'event': event.id})}}" class="btn btn-warning btn-sm">Editar</a>
+                    <a href="{{path('events_remove', {'event': event.id})}}" class="btn btn-danger btn-sm">Remover</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
